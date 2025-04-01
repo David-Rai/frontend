@@ -1,36 +1,52 @@
 /* Universal selector to reset margin and padding for all elements */
-*,
-*::before,
-*::after {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto";
 }
-:root {
-  --color: #1dbf73;
+:root{
+  --l-color:rgb(110, 109, 109);
+  --color:#1DBF73;
 }
 /* Set height and width of html and body to 100% */
-html,
-body {
+html, body {
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
 }
-.section {
+
+.section{
+  z-index: -1;
+  position: relative;
+  background: rgba(0, 0, 0, 0.562) url('https://company-portfolio-1.netlify.app/img/slider-1.jpg');
+   /* background-image: url('https://company-portfolio-1.netlify.app/img/slider-1.jpg'); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
-nav {
-  padding: 0px 5%;
+.section::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the transparency */
+}
+nav{
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 15%;
   width: 100vw;
+  height: 15%;
+  padding: 0px 30px;
+  z-index: 3;
 }
-nav .logo {
-  cursor: pointer;
-  font-weight: 900;
-  font-size: 2.5rem;
+nav .logo{
   color: var(--color);
 }
 nav ul {
@@ -38,91 +54,139 @@ nav ul {
   align-items: center;
   justify-content: space-between;
 }
-nav ul li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
+nav ul li{
+  color: white;
   text-transform: uppercase;
-  list-style: none;
-  padding-left: 20px;
-}
-.dropmenu {
   display: none;
+  list-style: none;
+  padding-left: 10px;
+}
+nav ul .dropmenu{
+font-size: 30px;
 }
 main {
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 85%;
-  width: 100vw;
+  width: 100%;
 }
-main .center {
+main .center{
+  z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
 }
 main .center h1{
-    font-weight: 600;
-    font-size: 30px;
+color: white;
 }
-main .center p {
-  padding: 2rem 0rem;
+main .center p{
+  color: white;
+  padding: 1rem 0rem;
 }
 main .center button{
-    color: white;
-    border: none;
-    border: 1px solid var(--color);
-    height: 40px;
-    width: 140px;
-    background-color: var(--color);
+  border: none;
+  height: 40px;
+  width: 140px;
+  color: white;
+  background-color: var(--color);
+}
+.default-button{
+  border: none;
+  height: 40px;
+  width: 140px;
+  color: white;
+  background-color: var(--color);
+
+}
+               /* ABOUT PAGE */
+.about{
+  background-color: #F2F2F2;
+  padding: 0px 20px;
+  min-height: 100vh;
+  width: 100%;
+}
+p{
+  color: var(--l-color);
+}
+.about-top{
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.about-top h1{
+  text-transform: uppercase;
+}
+.about-bottom{
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+.about-bottom img{
+  width: 100%;
+  height: 240px;
+}
+.about-bottom p{
+  padding: 1rem 0rem;
+}
+.about-bottom h1{
+  color: var(--color);
+  text-align: capitalize;
 }
 
-         /* media queries for mobile device below 600px*/
-@media screen and (max-width: 500px) {
-  nav .logo {
-    font-size: 1.5rem;
+
+/* Media for the tablets */
+@media screen and (min-width:600px) {
+  nav ul li{
+    font-size: 0.8rem;
+    display: block;
   }
-  nav ul li {
+  nav ul .dropmenu{
     display: none;
   }
-  nav ul .dropmenu {
-    display: block;
-    font-size: 20px;
+  .about-top p{
+    width: 60%;
   }
-
-  /* responsive for center content */
- main .center {
-    width: 90%;
+  .about-bottom img{
+    margin: 10px;
   }
-  main .center p{
-    width: 100%;
+  .about-bottom{
+    flex-wrap: nowrap;
+    flex-direction: row;
   }
-  main .center h1{
-    font-size: 40px;
-  }
-
 }
 
-   /* Media queries for tablets */
 
-
-@media all and (max-width:768px){
-
-    body{
-        background-color: red;
-    }
-    nav .logo{
-    font-size: 1.8rem;
-    }
-
-    nav ul li{
-        font-size: 0.8rem;
-        padding-left: 15px;
-    }
-    main .center{
-        width: 70%;
-    }
+/* Media query for the pc and laptop */
+@media screen and (min-width:1024px) {
+ nav .logo{
+  font-size: 2rem;
+ }
+  nav ul li{
+    padding-left: 20px;
+    font-size: 1rem;
+  }
+  main .center{
+    width: 40%;
+  }
+  .about{
+    padding: 10%;
+  }
+  .about-bottom img{
+    height: 300px;
+  }
+  .about-bottom p{
+    width: 80%;
+  }
+  
 }
