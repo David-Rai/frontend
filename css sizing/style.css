@@ -3,6 +3,9 @@
     margin: 0;
     padding:0;
 }
+:root{
+    --color:red;
+}
 body,html{
     padding: 0px 20px;
     height: 100%;
@@ -15,7 +18,7 @@ body,html{
 nav{
     margin: 10px 0px;
     border: none;
-    border: 1px solid red;
+    border: 1px solid var(--color);
     padding: 10px;
      background-color: yellow;
 }

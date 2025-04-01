@@ -1,0 +1,128 @@
+/* Universal selector to reset margin and padding for all elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color: #1dbf73;
+}
+/* Set height and width of html and body to 100% */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.section {
+  height: 100vh;
+  width: 100vw;
+}
+nav {
+  padding: 0px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15%;
+  width: 100vw;
+}
+nav .logo {
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--color);
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-transform: uppercase;
+  list-style: none;
+  padding-left: 20px;
+}
+.dropmenu {
+  display: none;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85%;
+  width: 100vw;
+}
+main .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+main .center h1{
+    font-weight: 600;
+    font-size: 30px;
+}
+main .center p {
+  padding: 2rem 0rem;
+}
+main .center button{
+    color: white;
+    border: none;
+    border: 1px solid var(--color);
+    height: 40px;
+    width: 140px;
+    background-color: var(--color);
+}
+
+         /* media queries for mobile device below 600px*/
+@media screen and (max-width: 500px) {
+  nav .logo {
+    font-size: 1.5rem;
+  }
+  nav ul li {
+    display: none;
+  }
+  nav ul .dropmenu {
+    display: block;
+    font-size: 20px;
+  }
+
+  /* responsive for center content */
+ main .center {
+    width: 90%;
+  }
+  main .center p{
+    width: 100%;
+  }
+  main .center h1{
+    font-size: 40px;
+  }
+
+}
+
+   /* Media queries for tablets */
+
+
+@media all and (max-width:768px){
+
+    body{
+        background-color: red;
+    }
+    nav .logo{
+    font-size: 1.8rem;
+    }
+
+    nav ul li{
+        font-size: 0.8rem;
+        padding-left: 15px;
+    }
+    main .center{
+        width: 70%;
+    }
+}
