@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+      </style>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET COUNTRY DATA</title>
+<style>
+    /* Universal selector to reset margin and padding for all elements */
+    *,*::before,*::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'roboto';
+    }
+    
+    /* Set height and width of html and body to 100% */
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    main{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    main .center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .center h1{
+        text-transform: capitalize;
+    }
+    .center input{
+        border: none;
+        border: 1px solid black;
+        height: 60px;
+        width: 90%;
+        padding-left: 10px;
+    }
+    .centerField{
+        padding: 20px;
+    }
+</style>
+</head>
+
+<body>
+    <main>
+        <div class="center">
+            <h1>get your country flag</h1>
+            <input type="text" placeholder="enter your country name">
+        </div>
+        <div class="centerField">
+        </div>
+    </main>
+
+    <script>
+  document.addEventListener("DOMContentLoaded",()=>{
+    const url="https://restcountries.com/v3.1/name/"
+    const center=document.querySelector('.centerField')
+    const inputValue=document.querySelector('.center input');
+    let datas={}
+
+    //reading the inputs
+    inputValue.addEventListener('input',async ()=>{
+    const response=await fetch(`${url}${inputValue.value}`)
+    const data=await response.json()
+    // console.log(data)   
+  datas={
+    capital:data[0].capital[0],
+    language:data[0].languages.nep,
+    flag:data[0].flags.png,
+    map:data[0].maps.googleMaps
+  }
+  console.log(datas.flag)
+
+//show data
+center.innerHTML =`
+<img src='${datas.flag}' alt="hehehhha">
+`
+
+})
+
+  })
+</script>
+</body>
+</html>
