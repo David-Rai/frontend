@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'roboto','monospace';
 }
 
 /* Set height and width of html and body to 100% */
@@ -10,3 +11,55 @@ html, body {
   height: 100%;
   width: 100%;
 }
+main{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+ flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main h1{
+  font-size: clamp(35px,2vw,200px);
+}
+main p{
+  padding: 10px 0px;
+  font-size:clamp(14px,2vw,40px);
+  transition: all 100ms ease-out;
+  color: rgb(148, 144, 144);
+  width: calc(100% - 2rem);
+}
+main p:hover{
+  color: rgb(196, 192, 192);
+
+}
+main button{
+  font-weight: 300;
+  transition: all 200ms ease-in-out;
+  border: none;
+  color: white;
+  height: 40px;
+  width: 140px;
+  background-color: black;
+  font-size: 1.2rem;
+  cursor: pointor;
+}
+/* main button:hover{
+  animation-name: but;
+  animation-duration: 200ms;
+  animation-iteration-count:1;
+  
+}
+@keyframes but {
+  to{
+    border: 1px solid black;
+    color: black;
+    background-color: white;  
+  }
+} */
+ main button:hover{
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+ 
