@@ -1,0 +1,12 @@
+/* Universal selector to reset margin and padding for all elements */
+*,*::before,*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set height and width of html and body to 100% */
+html, body {
+  height: 100%;
+  width: 100%;
+}
