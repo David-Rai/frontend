@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get your ip</title>
+<style>
+    /* Universal selector to reset margin and padding for all elements */
+    *,*::before,*::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Set height and width of html and body to 100% */
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    main{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    main button{
+        border: none;
+        height: 40px;
+        width: 140px;
+        margin: 10px;
+        background-color: rgb(180, 180, 180);
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+    <main>
+        <h1></h1>
+  <button>copy</button>
+    </main>
+
+    <script>
+        const url="https://api.ipify.org/?format=json"
+        const textarea=document.querySelector('main h1')
+        const trigger=document.querySelector('main button')
+        
+          //Getting the users ip address from where the user is connected to the internet
+        document.addEventListener("DOMContentLoaded",async ()=>{
+            const res=await fetch(url)
+            const data=await res.json()
+            textarea.innerHTML=data.ip         
+        })
+
+        //copy to the clipboard feature
+        trigger.addEventListener('click',()=>{
+            navigator.clipboard.writeText(textarea.innerHTML).then(()=>{
+                alert("copied")
+            }).catch(err => console.log(err))
+        })
+    </script>
+</body>
+</html>
