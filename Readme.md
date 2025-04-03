@@ -20,6 +20,6 @@ A brief description of what the frontend project is and what it aims to achieve.
 - **Axios** – Promise-based HTTP client for making API requests.
 - **React Router** – For navigation and handling routes in the app.
 
-##projects
-[Get your ip address](https://david-rai.github.io/frontend/project/copyText/)
-[Get your country data](https://david-rai.github.io/frontend/project/country_data/)
+## projects
+- [Get your ip address](https://david-rai.github.io/frontend/project/copyText/)
+- [Get your country data](https://david-rai.github.io/frontend/project/country_data/)
