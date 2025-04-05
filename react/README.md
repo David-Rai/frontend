@@ -6,3 +6,6 @@
 - IT is also the hooks of react js
 - It helps to share parent data to the childs 
 - It also prevents props drilling
+
+## useMemo
+- It helps to memomizes or smooth out the time consuming calculation or functions

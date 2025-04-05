@@ -1,28 +1,28 @@
-import react from "react";
-import { useRef, useState, useEffect } from "react";
+import React from 'react'
+import { useState,useEffect,useReducer } from 'react'
+
+const reducer=(state,action)=>{
+switch(action.type){
+case "+":
+  return {count:state.count + 1}
+case "-":
+  return {count:state.count -1}
+  default:
+    return state
+}
+}
 
 const App = () => {
-  const inputRef = useRef(null);
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("");
+const [state,dispatch]=useReducer(reducer,{count:0})
 
-  useEffect(() => {
-    
-  });
 
   return (
-    <>
-      <main className="h-screen w-full flex flex-col justify-center items-center">
-        <input
-          type="text"
-          ref={inputRef}
-          placeholder="enter your name"
-          onChange={() => setName(inputRef.current.value)}
-        />
-        <h1>your name is {name}</h1>
-      </main>
-    </>
-  );
-};
+  <main className='h-screen w-screen bg-slate-400 flex items-center justify-center flex-col'>
+    <h1 className='text-5xl'>{state.count}</h1>
+    <button onClick={()=> dispatch({type:"+"})} className='btn'>+</button>
+    <button onClick={()=> dispatch({type:"-"})} className='btn bg-green-600'>-</button>
+  </main>
+  )
+}
 
-export default App;
+export default App
