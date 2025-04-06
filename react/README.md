@@ -9,3 +9,7 @@
 
 ## useMemo
 - It helps to memomizes or smooth out the time consuming calculation or functions
+
+## react router dom 
+- it helps for routing in client side routing
+
